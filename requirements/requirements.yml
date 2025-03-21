@@ -1,7 +1,10 @@
-name: template
+name: pdf_extraction
 dependencies:
   - python>=3
   - pandas
   - numpy
   - pytest
   - pytest-cov
+  - pip
+  - pip:
+      - pymupdf

@@ -6,8 +6,12 @@ def test_get_data_path():
     assert data_path.name == 'data'
     assert data_path.parts[-2:] == ('pdf_extraction', 'data')
 
-def test_read_pdf_simple():
+def test_read_pdf_minimal_document():
     result = read_pdf("001-minimal-document.pdf")
+    assert 'Lorem ipsum dolor sit amet' in result
+
+def test_read_pdf_trivial_libre_office_writer():
+    result = read_pdf("002-trivial-libre-office-writer.pdf")
     assert 'Lorem ipsum dolor sit amet' in result
 
 def test_get_files_in_folder():

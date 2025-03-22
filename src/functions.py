@@ -16,7 +16,7 @@ def get_files_in_folder(folder_name: str):
     """
     data_path = get_data_path()
     folder_path = data_path.joinpath(folder_name)
-    return [file.name for file in folder_path.iterdir() if file.is_file()]
+    return sorted([file.name for file in folder_path.iterdir() if file.is_file()])
 
 def read_pdf(file_name: str):
     """

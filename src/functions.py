@@ -10,6 +10,14 @@ def get_data_path():
     """
     return pathlib.Path(__file__).parent.parent.joinpath('data')
 
+def get_files_in_folder(folder_name: str):
+    """
+    Get the list of files in a folder
+    """
+    data_path = get_data_path()
+    folder_path = data_path.joinpath(folder_name)
+    return [file.name for file in folder_path.iterdir() if file.is_file()]
+
 def read_pdf(file_name: str):
     """
     Read text from a PDF file

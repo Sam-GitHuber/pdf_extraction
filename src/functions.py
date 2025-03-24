@@ -4,7 +4,6 @@ Module for getting text from PDF files
 import pathlib
 import pymupdf
 import pandas as pd
-import json
 
 def get_data_path():
     """
@@ -41,7 +40,7 @@ def extract_file_names(output_file_name: str) -> list[str]:
     output_file_path = data_path.joinpath('output', output_file_name)
     df = pd.read_csv(output_file_path
                      , usecols=['file_name'])
-    return df['file_name'].tolist()
+    return df['file_name'].unique().tolist()
 
 
 def build_dataframe(file_names: list[str], full_contents: str) -> pd.DataFrame:

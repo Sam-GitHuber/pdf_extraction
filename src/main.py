@@ -2,7 +2,7 @@
 Main script to ingest all files in the input folder
 """
 import pandas as pd
-from functions import read_pdf, get_files_in_folder, get_data_path
+from src.functions import read_pdf, get_files_in_folder, get_data_path
 
 
 def main():
@@ -21,4 +21,3 @@ def main():
     pdf_df = pd.DataFrame({'file_name': file_names, 'full_contents': file_contents})
     pdf_df.to_csv(get_data_path().joinpath('output', 'results.csv'), index=False)
 
-main()
